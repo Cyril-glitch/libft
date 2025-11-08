@@ -9,7 +9,7 @@
 typedef struct  s_list
 {
   void  *content;
-  s_list  *next;
+  struct  s_list  *next;
 } t_list;
 
 //gestion de memoire
@@ -40,6 +40,7 @@ void *ft_calloc(size_t nmemb, size_t size);
 int ft_tolower(int c);
 int ft_toupper(int c);
 size_t	ft_strlen(const char *s);
+void  ft_putstr(char *str);
 char *ft_strcpy(char *dst, const char *src);
 char *ft_strncpy(char *dst, const char *src,size_t dsize);
 char	*ft_strdup(const char *s1);
@@ -61,6 +62,7 @@ int ft_atoi(const char *nptr);
 
 //listes
 t_list *ft_lstnew(void *content);
+void ft_lstadd_front(t_list **lst, t_list *new);
 
 #endif 
 
