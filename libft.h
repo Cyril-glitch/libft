@@ -5,6 +5,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <unistd.h>
+#include <fcntl.h>
 
 typedef struct  s_list
 {
@@ -63,13 +64,23 @@ const char  *ft_trimp(char **dst,char const *s1, char const *set);
 size_t  ft_countword(const  char  *s,char *set);
 char **ft_split(char const *s, char c);
 
+//manipulation de chaines avec pointeur de fonctions
 char *ft_strmapi(char const *s, char (*f)(unsigned int, char));
+void ft_striteri(char *s, void (*f)(unsigned int,char*));
 
-
+//manipulation de fichiers
+int ft_wopen(const char *path);
+int ft_ropen(const char *path);
+int ft_rdw_open(const char *path);
+int ft_cat(int  fd,char *buf);
+void ft_putchar_fd(char c, int fd);
+void ft_putstr_fd(char *s, int fd);
+void ft_putnbr_fd(int n, int fd);
 
 //affichage des bases
 int ft_atoi(const char *nptr);
 char *ft_itoa(int n);
+void  ft_putnbr(int nbr);
 
 //listes
 t_list *ft_lstnew(void *content);
