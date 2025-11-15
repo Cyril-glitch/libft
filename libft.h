@@ -33,6 +33,7 @@ int ft_islower(int c);
 int ft_isupper(int c);
 int ft_isalnum(int c);
 int ft_isprint(int c);
+int ft_ischarset(char c,char set);
 int ft_isset(char c,const char *set);
 
 //allocation
@@ -61,7 +62,7 @@ char *ft_substr(char const *s, unsigned int start,size_t len);
 char *ft_strjoin(char const *s1, char const *s2);
 char *ft_trim(char const *s1, char const *set);
 const char  *ft_trimp(char **dst,char const *s1, char const *set);
-size_t  ft_countword(const  char  *s,char *set);
+int ft_countword(const  char  *s,char set);
 char **ft_split(char const *s, char c);
 
 //manipulation de chaines avec pointeur de fonctions
