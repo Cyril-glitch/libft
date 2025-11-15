@@ -1,65 +1,52 @@
 #include "libft.h"
 
-size_t ft_countn(long n)
+char *ft_numalloc(long *nbr , int *len)
 {
-  int i;
-  i = 0;
+  long tmp;
 
-  if (n == 0)
-    return 1;
+  *len = (*nbr < 0);
+  if (*nbr == 0)
+    (*len)++;
 
-  while (n)
-  {
-    n /= 10;
-    i++;
-  }
-  return i;
-}
-
-char *nbrloc(long *nbr, size_t *size)
-{
-  if(*nbr < 0)
-  {
+  else if (*nbr < 0)
     *nbr *= -1;
-    *size += 1;
+
+  tmp = *nbr;
+  while (tmp)
+  {
+    (*len)++;
+    tmp /= 10;
   }
-  *size += ft_countn(*nbr); 
-  return malloc(sizeof(char) * (*size + 1));
+  return malloc(sizeof(char) * (*len + 1));
 }
+
 
 char *ft_itoa(int n)
 {
   long  nbr;
-  char  *nombre;
-  size_t  size;
-  size_t  i;
-  size_t  tmp;
+  char  *res;
+  int len;
 
-  nbr = n;
-  i = 0;
-  size = 0; 
-  nombre = nbrloc(&nbr,&size);
-  if(!nombre)
-    return NULL;
-  nombre[size] = 0; 
-  while (i < size)
+  nbr = (long)n;
+  len = 0;
+  res = ft_numalloc(&nbr , &len);
+
+  res[len] = 0;
+  while (nbr)
   {
-    tmp = nbr;
-    nombre[(size - 1) - i] = (tmp %= 10) + '0'; 
+    res[--len] = (nbr % 10) + '0';
     nbr /= 10;
-    i++;
   }
   if(n < 0)
-    nombre[0] ='-';
-
-  return nombre;
+    res[0] = '-';
+  return res;
 }
 
 /*
 int main()
 {
   char* str = NULL;
-  str = ft_itoa(2147483647);
-  printf("%s\n",str);  
+  str = ft_itoa(-2147483648);
+  printf("%s\n",str);
 }
 */

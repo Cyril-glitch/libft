@@ -35,7 +35,6 @@ int  ft_parser(char **dst,char const *s, char set)
     return (i + j);
 }
 
-
 char **ft_split(char const *s, char c)
 {
   int n;
@@ -64,6 +63,7 @@ char **ft_split(char const *s, char c)
   return tab;
 }
 
+/*
 int main()
 {
   int i = 0;
@@ -79,4 +79,4 @@ int main()
   ft_freeiter(tab);
   tab = NULL;
 }
-
+*/
