@@ -29,7 +29,7 @@ static int	ft_load(char **tab, char const *s, char c, int index)
 	tab[index] = malloc(sizeof(char) * (len + 1));
 	if (!tab[index])
 		return (0);
-	ft_memcpy(tab[index], s, len);
+	ft_bzero(ft_mempcpy(tab[index], s, len), 1);
 	if (ft_load(tab, s + len, c, index + 1))
 		return (1);
 	free(tab[index]);
