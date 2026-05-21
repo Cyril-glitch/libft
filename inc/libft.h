@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mtagand <mtagand@student.42.fr>            +#+  +:+       +#+        */
+/*   By: cycolonn <cycolonn@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/17 13:56:38 by cycolonn          #+#    #+#             */
-/*   Updated: 2026/03/11 16:23:31 by mtagand          ###   ########.fr       */
+/*   Created: 2026/04/10 15:59:48 by cycolonn          #+#    #+#             */
+/*   Updated: 2026/04/10 17:59:28 by cycolonn         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define LIBFT_H
 # include <stdlib.h>
 # include <unistd.h>
+# include "ft_printf.h"
 
 //# include <fcntl.h>
 //# include <stdio.h>
@@ -23,7 +24,23 @@ typedef struct s_list
 {
 	void			*content;
 	struct s_list	*next;
-}					t_list;
+}	t_list;	
+	
+# define RESET "\001\033[0m\002"
+// bold blue
+# define B_BLUE "\001\033[1;34m\002"
+// bold light red
+# define B_L_RED "\001\033[1;91m\002"
+// vert menthe doux
+# define MINT "\001\033[38;5;121m\002"
+// Rouge Corail Doux (Coral)
+# define CORAL "\001\033[38;5;203m\002"
+// Un Bleu Acier
+# define STEEL "\001\033[38;5;110m\002"
+// lavande
+# define LAVENDER "\001\033[38;5;147m\002"
+// ice blue
+# define ICE_BLUE "\001\033[38;5;117m\002"
 
 //gestion de memoire
 void				*ft_memset(void *b, int c, size_t len);
@@ -47,6 +64,7 @@ int					ft_isalnum(int c);
 int					ft_isprint(int c);
 int					ft_ischarset(char c, char set);
 int					ft_isset(char c, const char *set);
+int					ft_isfull_dig(char *s);
 
 //allocation
 void				*ft_calloc(size_t nmemb, size_t size);
